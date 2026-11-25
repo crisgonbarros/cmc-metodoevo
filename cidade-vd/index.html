@@ -386,11 +386,12 @@ html[data-theme="dark"]{--surface-solid:#0e1d40}
 .tk-foot{display:flex;flex-wrap:wrap;justify-content:center;gap:8px 18px;color:var(--muted);font-weight:600;font-size:14px}
 .tk-foot span{display:inline-flex;align-items:center;gap:6px}
 .tk-foot svg{width:16px;height:16px}
+/* Ordem: Individual, Especial, VIP (do mais barato ao mais caro) */
 @media (min-width:960px){
-  .tk-grid{grid-template-columns:1fr 1.08fr 1fr;gap:22px}
-  .tk.tk-vip{order:0;transform:translateY(-10px)}
+  .tk-grid{grid-template-columns:1fr 1fr 1.08fr;gap:22px}
+  .tk.tk-vip{transform:translateY(-10px)}
 }
-@media (max-width:959px){.tk.tk-vip{order:-1;margin-top:10px}}
+@media (max-width:959px){.tk.tk-vip{margin-top:10px}}
 
 /* Depois da compra */
 .steps{display:grid;gap:16px;margin-top:34px;counter-reset:st}
@@ -576,15 +577,32 @@ html.is-ended .sticky{display:none!important}
           <li class="js-opt"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg>{{EXTRA_INDIVIDUAL_2}}</li>
         </ul>
         <div class="price">
-          <span class="de js-opt">De <s>R$ 297</s> por</span>
-          <span class="por"><small>R$</small><b class="js-price" data-de="297">197</b></span>
-          <span class="parc js-opt">ou 12x de R$ 19,70</span>
+          <span class="de js-opt">De <s>R$ 147</s> por</span>
+          <span class="por"><small>R$</small><b class="js-price" data-de="147">97</b></span>
+          <span class="parc js-opt">ou 12x de R$ 9,70</span>
         </div>
         <button class="btn js-buy" type="button">Quero esse ingresso</button>
       </article>
 
+      <!-- Acesso Especial -->
+      <article class="tk rv d1" data-ingresso="Especial" data-checkout="{{CHECKOUT_ESPECIAL}}">
+        <h3>Acesso Especial</h3>
+        <p class="for">Para você levar alguém especial junto.</p>
+        <ul>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg>1 ingresso para você</li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg><span><span class="js-conv" data-n="1">1</span> para ir com você</span></li>
+          <li class="js-opt"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg>{{EXTRA_ESPECIAL_1}}</li>
+          <li class="js-opt"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg>{{EXTRA_ESPECIAL_2}}</li>
+        </ul>
+        <div class="price">
+          <span class="de js-opt">De <s>R$ 221</s> por</span>
+          <span class="por"><small>R$</small><b class="js-price" data-de="221">147</b></span>
+          <span class="parc js-opt">ou 12x de R$ 14,70</span>
+        </div>
+        <button class="btn js-buy" type="button">Quero esse ingresso</button>
+      </article>
       <!-- Acesso VIP (destaque) -->
-      <article class="tk tk-vip rv d1" data-ingresso="VIP" data-checkout="{{CHECKOUT_VIP}}">
+      <article class="tk tk-vip rv d2" data-ingresso="VIP" data-checkout="{{CHECKOUT_VIP}}">
         <span class="badge">Recomendado</span>
         <h3>Acesso VIP</h3>
         <p class="for">Para você viver esse dia com as pessoas que importam.</p>
@@ -595,27 +613,9 @@ html.is-ended .sticky{display:none!important}
           <li class="js-opt"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg>{{EXTRA_VIP_2}}</li>
         </ul>
         <div class="price">
-          <span class="de js-opt">De <s>R$ 797</s> por</span>
-          <span class="por"><small>R$</small><b class="js-price" data-de="797">497</b></span>
-          <span class="parc js-opt">ou 12x de R$ 49,70</span>
-        </div>
-        <button class="btn js-buy" type="button">Quero esse ingresso</button>
-      </article>
-
-      <!-- Acesso Especial -->
-      <article class="tk rv d2" data-ingresso="Especial" data-checkout="{{CHECKOUT_ESPECIAL}}">
-        <h3>Acesso Especial</h3>
-        <p class="for">Para você levar alguém especial junto.</p>
-        <ul>
-          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg>1 ingresso para você</li>
-          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg><span><span class="js-conv" data-n="1">1</span> para ir com você</span></li>
-          <li class="js-opt"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg>{{EXTRA_ESPECIAL_1}}</li>
-          <li class="js-opt"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg>{{EXTRA_ESPECIAL_2}}</li>
-        </ul>
-        <div class="price">
-          <span class="de js-opt">De <s>R$ 447</s> por</span>
-          <span class="por"><small>R$</small><b class="js-price" data-de="447">297</b></span>
-          <span class="parc js-opt">ou 12x de R$ 29,70</span>
+          <span class="de js-opt">De <s>R$ 397</s> por</span>
+          <span class="por"><small>R$</small><b class="js-price" data-de="397">247</b></span>
+          <span class="parc js-opt">ou 12x de R$ 24,70</span>
         </div>
         <button class="btn js-buy" type="button">Quero esse ingresso</button>
       </article>
