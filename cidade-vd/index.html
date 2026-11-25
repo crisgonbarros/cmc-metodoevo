@@ -319,6 +319,18 @@ html[data-theme="dark"] .fld select option{background:#0c1a3a}
 .hero-meta{margin-bottom:8px}
 @media (max-width:370px){.btn{padding:16px 14px;gap:6px}.btn svg{width:16px;height:16px}}
 .hero-photo.only-mobile{margin-top:18px;margin-bottom:-40px;width:min(280px,70vw)}
+/* Topo no computador: compacto para o botão aparecer sem rolar */
+@media (min-width:900px){
+  .hero{padding:36px 0 50px}
+  .hero-left{gap:12px}
+  .hero .logo{max-width:min(330px,35vh)}
+  .hero-meta{gap:8px;margin-bottom:2px}
+  .hero-copy{gap:12px}
+  .hero h1{font-size:clamp(28px,min(3.4vw,5.2vh),40px)}
+  .hero .sub{font-size:clamp(15px,2.3vh,17.5px);line-height:1.55}
+  .hero .grupo{font-size:15px}
+  .btn{min-height:54px;padding:16px 30px}
+}
 @media (prefers-reduced-motion:reduce){
   *,*::before,*::after{animation:none!important;transition:none!important}
   .rv,.hero-anim{opacity:1!important;transform:none!important}
@@ -346,7 +358,7 @@ html[data-theme="dark"] .fld select option{background:#0c1a3a}
 .hero-left .hero-media{margin-top:22px}
 .hero-left .hero-media.no-video .hero-photo{width:min(280px,70vw);margin:0 auto -40px}
 @media (min-width:900px){
-  .hero .logo{max-width:400px}
+  .hero .logo{max-width:min(320px,38vh)}
   .hero-media{margin:0;max-width:none}
   .hero-media.no-video .hero-photo{width:100%;max-width:440px;margin:0 0 -70px auto}
 }
