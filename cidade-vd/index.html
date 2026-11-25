@@ -797,6 +797,17 @@ html.is-ended .sticky{display:none!important}
     pagina:     'vendas'
   };
   var root=document.documentElement;
+
+  /* ----- Sem palavra sozinha na última linha dos títulos ----- */
+  document.querySelectorAll('h1, .h2').forEach(function(el){
+    var w=document.createTreeWalker(el,NodeFilter.SHOW_TEXT,null),nodes=[],n;
+    while((n=w.nextNode()))nodes.push(n);
+    for(var i=nodes.length-1;i>=0;i--){
+      var t=nodes[i].nodeValue.replace(/\s+$/,''), k=t.lastIndexOf(' ');
+      if(k>0){nodes[i].nodeValue=t.slice(0,k)+'\u00A0'+t.slice(k+1)+nodes[i].nodeValue.slice(t.length);break;}
+      if(t.trim()!=='' && i<nodes.length-1)break;
+    }
+  });
   var filled=function(v){return !!v && String(v).indexOf('{{')===-1 && String(v).trim()!=='';};
 
   /* ----- Tema ----- */
